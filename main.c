@@ -10,6 +10,7 @@ int main(void)
     struct List *listHead = NULL;
     struct List *listFind = NULL;
 
+
     listHead = addList(listHead, "cosmos", 	strlen("cosmos"));
     listHead = addList(listHead, "star", 	strlen("star"));
     listHead = addList(listHead, "physics", 	strlen("physics"));
@@ -18,29 +19,28 @@ int main(void)
     listHead = addList(listHead, "algorithm", 	strlen("algorithm"));
     listHead = addList(listHead, "science", 	strlen("science"));
 
-    
-    system("cls");	
 
     printList(listHead);
-/*
+
+
+    // Remove element in the middle
     if (listFind = findItemList(listHead, 4))
     {
     	printf("\nFIND key = %d: \t%s\n", listFind->key, listFind->word);
     }
-
-    if (removeItemList(listHead, listFind))
+    if (removeItemList(&listHead, &listFind))
     {
     	printList(listHead);	
     }
- */
+
+    // Remove element in the head
     if (listFind = findItemList(listHead, 7))
     {
-    	//printf("\nFIND key = %d: \t%s\n", listFind->key, listFind->word);
+    	printf("\nFIND key = %d: \t%s\n", listFind->key, listFind->word);
     }
-    
-    if (removeItemList(listHead, listFind))
+    if (removeItemList(&listHead, &listFind))
     {
-    	printList(listHead);	
+        printList(listHead);
     }
 	
     //<

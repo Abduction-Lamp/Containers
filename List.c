@@ -6,6 +6,7 @@
 #include <string.h>
 #include <stdio.h>
 #include <stdbool.h>
+
 #include "List.h"
 
 
@@ -13,7 +14,9 @@
 static void deleteItem(struct List *item)
 {
 	if (item->word != NULL)
-		free(item->word);
+    {
+        free(item->word);
+    }
 }
 
 
@@ -28,16 +31,13 @@ struct List *addList(struct List *head, const char *string, int keyCount)
 
         list->word = (char *)malloc(sizeof(char) * (strlen(string) + 1));
         strcpy(list->word, string);
-
         list->key = keyCount;
-
         list->next = head;
-        head = list;
     }
-                    
 
     return list;
 }
+
 
 void printList(struct List *head)
 {
@@ -52,7 +52,6 @@ void printList(struct List *head)
         head = head->next;
     }
 }
-
 
 
 struct List * findItemList(struct List *head, int keyFind)
@@ -70,37 +69,39 @@ struct List * findItemList(struct List *head, int keyFind)
 	return current;
 }
 
-
-_Bool removeItemList(struct List *head, struct List *item) 
+/*
+ * The arguments to the function **head and **item take the address of a pointer to head and
+ * address of a pointer to the deleted element List. This is required to return values through arguments.
+ *
+ * */
+_Bool removeItemList(struct List **head, struct List **item)
 {
 	_Bool flag = false;
-	struct List *current = head;
+    struct List *current = *head;
 
-	if (head != NULL)
+	if (*head != NULL)
 	{
-		if (head == item)
+		if (*head == *item)
 		{
-			puts("\n123");
-			printf("\n%S", head->word);
-			printf("\n%S", head->next->word);
+			deleteItem(*item);
 
-			head = item->next;
-			deleteItem(item);			
-			item->next = NULL;
-			item = NULL;
+            *head = (*item)->next;
+            (*item)->next = NULL;
+			*item = NULL;
 
 			flag = true;
 		}
 		else
-		{
-                	while (current->next != NULL)
+        {
+            while (current->next != NULL)
 			{
-				if (current->next == item)
+				if (current->next == *item)
 				{
-					deleteItem(item);
-					current->next = item->next;
-					item->next = NULL;
-                                        item = NULL;
+					deleteItem(*item);
+
+					current->next = (*item)->next;
+                    (*item)->next = NULL;
+                    *item = NULL;
 
 					flag = true;
 					break;					
@@ -109,10 +110,13 @@ _Bool removeItemList(struct List *head, struct List *item)
 			}
 		}     
 	}
-	
 
-	return flag;	
+    return flag;
 }
 
-_Bool deleteList(struct List *head) {}
+_Bool deleteList(struct List *head)
+{
+
+    return false;
+}
         
