@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdio.h>
 
 #include "List.h"
 
@@ -17,5 +18,10 @@ int main(void)
 
     printList(listHead);
 
+
+	
+    //<
+    getchar();
+	
     return 0;
 }

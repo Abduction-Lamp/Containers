@@ -26,3 +26,4 @@ struct List * addList(struct List *head, const char *string);
 void printList(struct List *head);
 
 #endif //CONTAINERS_LIST_H
+

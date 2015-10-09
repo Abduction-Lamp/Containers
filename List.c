@@ -1,8 +1,7 @@
 //
 // Created by Vladimir
 //
-
-#include <MacTypes.h>
+                     
 #include <stdlib.h>
 #include <string.h>
 #include <stdio.h>
@@ -44,3 +43,4 @@ void printList(struct List *head)
         head = head->next;
     }
 }
+
