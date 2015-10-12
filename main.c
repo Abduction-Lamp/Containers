@@ -11,11 +11,11 @@ int main(void)
     struct List *listFind = NULL;
 
 
-    listHead = addList(listHead, "cosmos", 	strlen("cosmos"));
-    listHead = addList(listHead, "star", 	strlen("star"));
+    listHead = addList(listHead, "cosmos",      strlen("cosmos"));
+    listHead = addList(listHead, "star", 	    strlen("star"));
     listHead = addList(listHead, "physics", 	strlen("physics"));
     listHead = addList(listHead, "mathematics", strlen("mathematics"));
-    listHead = addList(listHead, "planet", 	strlen("planet"));
+    listHead = addList(listHead, "planet", 	    strlen("planet"));
     listHead = addList(listHead, "algorithm", 	strlen("algorithm"));
     listHead = addList(listHead, "science", 	strlen("science"));
 
@@ -42,7 +42,9 @@ int main(void)
     {
         printList(listHead);
     }
-	
+
+    deleteList(listHead);
+
     //<
     puts("\n\nExit");
     getchar();

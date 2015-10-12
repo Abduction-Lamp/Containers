@@ -114,9 +114,22 @@ _Bool removeItemList(struct List **head, struct List **item)
     return flag;
 }
 
-_Bool deleteList(struct List *head)
+_Bool deleteList(struct List **head)
 {
+	struct List *current = *head;
 
-    return false;
+	while (current->next != NULL)
+	{
+		while (current->next->next != NULL)
+		{
+			current = current->next;
+		}
+		deleteItem(current->next);
+		current->next = NULL;
+		current = *head;
+	}
+	*head = NULL;
+
+    return true;
 }
         
