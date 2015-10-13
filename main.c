@@ -43,7 +43,10 @@ int main(void)
         printList(listHead);
     }
 
-    deleteList(listHead);
+    // Delete all List
+    deleteList(&listHead);
+
+
 
     //<
     puts("\n\nExit");

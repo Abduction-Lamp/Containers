@@ -125,13 +125,21 @@ _Bool deleteList(struct List **head)
 		while (current->next->next != NULL)
 		{
 			current = current->next;
-		}
+		}                                         
+
 		deleteItem(current->next);
+		free(current->next);
+
 		current->next = NULL;
+
 		current = *head;
 	}
+                                   
+	deleteItem(*head);
+	free(*head);	
+	
 	*head = NULL;
 
-    return true;
+    return true;  			// do the checkup
 }
-        
+       
