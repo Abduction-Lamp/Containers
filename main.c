@@ -3,13 +3,22 @@
 #include <string.h>
 
 #include "List.h"
+#include "DoubleList.h"
 
 
 int main(void)
 {
+
     struct List *listHead = NULL;
     struct List *listFind = NULL;
 
+    struct DoubleList *doubleListHead = NULL;
+    struct DoubleList *doubleListFind = NULL;
+
+
+
+
+    // <<<<<<<<<< List <<<<<<<<<<
 
     listHead = addList(listHead, "cosmos",      strlen("cosmos"));
     listHead = addList(listHead, "star", 	    strlen("star"));
@@ -48,6 +57,26 @@ int main(void)
 
 
 
+
+
+    // <<<<<<<<<< Double List <<<<<<<<<<
+       	                                                                                      
+    doubleListHead = addDoubleListLast(doubleListHead,  "HabraHabr",	strlen("HabraHabr"));	                                                                                      
+    doubleListHead = addDoubleListFirst(doubleListHead, "Yandex",	strlen("Yandex"));
+    doubleListHead = addDoubleListLast(doubleListHead, 	"Google",	strlen("Google"));
+    doubleListHead = addDoubleListLast(doubleListHead, 	"Instagram",	strlen("Instagram"));
+    doubleListHead = addDoubleListFirst(doubleListHead, "Apple",	strlen("Apple"));
+    doubleListHead = addDoubleListLast(doubleListHead, 	"Facebook",	strlen("Facebook"));
+    doubleListHead = addDoubleListFirst(doubleListHead, "vk",		strlen("Microsoft"));
+    doubleListHead = addDoubleListLast(doubleListHead, 	"Microsoft",	strlen("Microsoft"));    
+    doubleListHead = addDoubleListFirst(doubleListHead, "Twitter",	strlen("Microsoft"));
+   	
+
+    printDoubleList(doubleListHead);
+
+
+
+ 
     //<
     puts("\n\nExit");
     getchar();
