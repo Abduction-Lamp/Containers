@@ -77,7 +77,7 @@ struct List * findItemList(struct List *head, int keyFind)
 _Bool removeItemList(struct List **head, struct List **item)
 {
 	_Bool flag = false;
-    struct List *current = *head;
+    	struct List *current = *head;
 
 	if (*head != NULL)
 	{
@@ -85,23 +85,25 @@ _Bool removeItemList(struct List **head, struct List **item)
 		{
 			deleteItem(*item);
 
-            *head = (*item)->next;
-            (*item)->next = NULL;
-			*item = NULL;
+            		*head = (*item)->next;
+            		(*item)->next = NULL;
+			free(*item);
+                        *item = NULL;
 
 			flag = true;
 		}
 		else
-        {
-            while (current->next != NULL)
+        	{
+            		while (current->next != NULL)
 			{
 				if (current->next == *item)
 				{
 					deleteItem(*item);
 
 					current->next = (*item)->next;
-                    (*item)->next = NULL;
-                    *item = NULL;
+                    			(*item)->next = NULL;
+                    			free(*item);
+					*item = NULL;
 
 					flag = true;
 					break;					
@@ -111,7 +113,7 @@ _Bool removeItemList(struct List **head, struct List **item)
 		}     
 	}
 
-    return flag;
+    	return flag;
 }
 
 _Bool deleteList(struct List **head)
