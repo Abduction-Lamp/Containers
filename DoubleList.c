@@ -118,5 +118,19 @@ void printDoubleList(struct DoubleList *head)\
 }
 
 
+int getSizeDoubleList(struct DoubleList *head)
+{
+    int i = 0;
+    if (head != NULL)
+    {
+        i++;
+        while (head->next != NULL)
+        {
+            i++;
+            head = head->next;
+        }
+    }
 
+    return i;
+}
 

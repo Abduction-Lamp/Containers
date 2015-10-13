@@ -23,10 +23,14 @@ struct List
 
 
 struct List * addList(struct List *head, const char *string, int keyCount);
+
 struct List * findItemList(struct List *head, int keyFind);
+
 _Bool removeItemList(struct List **head, struct List **item);
 _Bool deleteList(struct List **head);
+
 void printList(struct List *head);
+int getSizeList(struct List *head);
 
 #endif //CONTAINERS_LIST_H
 

@@ -131,7 +131,6 @@ _Bool deleteList(struct List **head)
 		free(current->next);
 
 		current->next = NULL;
-
 		current = *head;
 	}
                                    
@@ -142,4 +141,21 @@ _Bool deleteList(struct List **head)
 
     return true;  			// do the checkup
 }
-       
+
+
+int getSizeList(struct List *head)
+{
+	int i = 0;
+	if (head != NULL)
+	{
+		i++;
+		while (head->next != NULL)
+		{
+			i++;
+			head = head->next;
+		}
+	}
+
+	return i;
+}
+

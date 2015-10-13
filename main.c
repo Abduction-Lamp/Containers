@@ -33,7 +33,7 @@ int main(void)
 
 
     // Remove element in the middle
-    if (listFind = findItemList(listHead, 4))
+    if ((listFind = findItemList(listHead, 4)) != NULL)
     {
     	printf("\nFIND key = %d: \t%s\n", listFind->key, listFind->word);
     }
@@ -43,7 +43,7 @@ int main(void)
     }
 
     // Remove element in the head
-    if (listFind = findItemList(listHead, 7))
+    if ((listFind = findItemList(listHead, 7)) != NULL)
     {
     	printf("\nFIND key = %d: \t%s\n", listFind->key, listFind->word);
     }
@@ -51,6 +51,9 @@ int main(void)
     {
         printList(listHead);
     }
+
+    printf("\nSize List = %d", getSizeList(listHead));
+
 
     // Delete all List
     deleteList(&listHead);
@@ -62,21 +65,22 @@ int main(void)
     // <<<<<<<<<< Double List <<<<<<<<<<
        	                                                                                      
     doubleListHead = addDoubleListLast(doubleListHead,  "HabraHabr",	strlen("HabraHabr"));	                                                                                      
-    doubleListHead = addDoubleListFirst(doubleListHead, "Yandex",	strlen("Yandex"));
-    doubleListHead = addDoubleListLast(doubleListHead, 	"Google",	strlen("Google"));
+    doubleListHead = addDoubleListFirst(doubleListHead, "Yandex",	    strlen("Yandex"));
+    doubleListHead = addDoubleListLast(doubleListHead, 	"Google",	    strlen("Google"));
     doubleListHead = addDoubleListLast(doubleListHead, 	"Instagram",	strlen("Instagram"));
-    doubleListHead = addDoubleListFirst(doubleListHead, "Apple",	strlen("Apple"));
-    doubleListHead = addDoubleListLast(doubleListHead, 	"Facebook",	strlen("Facebook"));
-    doubleListHead = addDoubleListFirst(doubleListHead, "vk",		strlen("Microsoft"));
+    doubleListHead = addDoubleListFirst(doubleListHead, "Apple",	    strlen("Apple"));
+    doubleListHead = addDoubleListLast(doubleListHead, 	"Facebook",	    strlen("Facebook"));
+    doubleListHead = addDoubleListFirst(doubleListHead, "vk",		    strlen("vk"));
     doubleListHead = addDoubleListLast(doubleListHead, 	"Microsoft",	strlen("Microsoft"));    
-    doubleListHead = addDoubleListFirst(doubleListHead, "Twitter",	strlen("Microsoft"));
+    doubleListHead = addDoubleListFirst(doubleListHead, "Twitter",	    strlen("Twitter"));
    	
 
     printDoubleList(doubleListHead);
+    printf("\nSize DoubleList = %d", getSizeDoubleList(doubleListHead));
 
 
 
- 
+
     //<
     puts("\n\nExit");
     getchar();
