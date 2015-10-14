@@ -69,6 +69,7 @@ struct List * findItemList(struct List *head, int keyFind)
 	return current;
 }
 
+
 /*
  * The arguments to the function **head and **item take the address of a pointer to head and
  * address of a pointer to the deleted element List. This is required to return values through arguments.
@@ -77,32 +78,34 @@ struct List * findItemList(struct List *head, int keyFind)
 _Bool removeItemList(struct List **head, struct List **item)
 {
 	_Bool flag = false;
-    	struct List *current = *head;
+    struct List *current = *head;
 
-	if (*head != NULL)
+	if (*head != NULL && *item != NULL)
 	{
 		if (*head == *item)
 		{
 			deleteItem(*item);
 
-            		*head = (*item)->next;
-            		(*item)->next = NULL;
+			*head = (*item)->next;
+			(*item)->next = NULL;
+
 			free(*item);
-                        *item = NULL;
+			*item = NULL;
 
 			flag = true;
 		}
 		else
-        	{
-            		while (current->next != NULL)
+		{
+			while (current->next != NULL)
 			{
 				if (current->next == *item)
 				{
 					deleteItem(*item);
 
 					current->next = (*item)->next;
-                    			(*item)->next = NULL;
-                    			free(*item);
+                    (*item)->next = NULL;
+
+                    free(*item);
 					*item = NULL;
 
 					flag = true;
@@ -112,9 +115,14 @@ _Bool removeItemList(struct List **head, struct List **item)
 			}
 		}     
 	}
+    else
+    {
+        flag = false;
+    }
 
-    	return flag;
+    return flag;
 }
+
 
 _Bool deleteList(struct List **head)
 {
@@ -157,5 +165,26 @@ int getSizeList(struct List *head)
 	}
 
 	return i;
+}
+
+
+struct List * getItemList(struct List *head, int i)
+{
+    int count = 0;
+
+    if (i < getSizeList(head) && i > -1)
+    {
+        while (count != i)
+        {
+            head = head->next;
+            count++;
+        }
+    }
+    else
+    {
+        head = NULL;
+    }
+
+    return head;
 }
 

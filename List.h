@@ -25,6 +25,7 @@ struct List
 struct List * addList(struct List *head, const char *string, int keyCount);
 
 struct List * findItemList(struct List *head, int keyFind);
+struct List * getItemList(struct List *head, int i);
 
 _Bool removeItemList(struct List **head, struct List **item);
 _Bool deleteList(struct List **head);

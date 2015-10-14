@@ -1,5 +1,4 @@
 #include <stdio.h>
-#include <stdio.h>
 #include <string.h>
 
 #include "List.h"
@@ -74,24 +73,25 @@ int main(void)
     doubleListHead = addDoubleListLast(doubleListHead, 	"Microsoft",	strlen("Microsoft"));    
     doubleListHead = addDoubleListFirst(doubleListHead, "Twitter",	    strlen("Twitter"));
    	
-    // Print DoubleList	
+    // Print DoubleList
+    puts("\n\n");
     printDoubleList(doubleListHead);
     printEndDoubleList(doubleListHead);
 
     // Print Size DoubleList
-    printf("\nSize DoubleList = %d", getSizeDoubleList(doubleListHead));
+    printf("\nSize DoubleList = %d\n", getSizeDoubleList(doubleListHead));
 
 
     // Find
     if ((doubleListFind = findItemDoubleList(doubleListHead, 2)) != NULL)
     {
-    	printf("\nFIND key = %d: \t%s\n", doubleListFind->key, doubleListFind->word);
+    	printf("\nFIND key = %d: \t%s", doubleListFind->key, doubleListFind->word);
     }
 
     // Remove element in the middle (Find == Get)
     if ((doubleListFind = getItemDoubleList(doubleListHead /*NULL*/, 5)) != NULL)
     {
-    	printf("\nGET DoubleList: \t%d\t%s\n", doubleListFind->key, doubleListFind->word);
+    	printf("\nGET DoubleList: \t%d\t%s", doubleListFind->key, doubleListFind->word);
     }
     if (removeItemDoubleList(&doubleListHead, &doubleListFind))
     {

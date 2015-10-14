@@ -80,7 +80,7 @@ struct DoubleList * addDoubleListLast(struct DoubleList *head, const char *strin
 				else
 				{                         
 					free(doubleList);
-					doubleList = NULL;	
+//					doubleList = NULL;
 				} 
 			} 
 		}
@@ -125,6 +125,7 @@ struct DoubleList * getItemDoubleList(struct DoubleList *head, int i)
 	return head;
 }
 
+
 _Bool removeItemDoubleList(struct DoubleList **head, struct DoubleList **item)
 {
 	struct DoubleList *current = *head;
@@ -161,7 +162,7 @@ _Bool removeItemDoubleList(struct DoubleList **head, struct DoubleList **item)
 						free(current->next->word);
 					}
 	
-					current->next = (*item)->next;
+					current->next = (*item)->next;  // current->next->next
 					if (current->next != NULL)
 					{
 						current->next->prev = current;
@@ -177,6 +178,10 @@ _Bool removeItemDoubleList(struct DoubleList **head, struct DoubleList **item)
 			}
 		}
 	}
+	else
+	{
+		flag = false;
+	}
 
 	return flag;
 }
@@ -185,27 +190,22 @@ _Bool removeItemDoubleList(struct DoubleList **head, struct DoubleList **item)
 _Bool deleteDoubleList(struct DoubleList **head)
 {
 	struct DoubleList *current = *head;
-	_Bool flag = false;
+//	_Bool flag = false;
 
 	while (current->next != NULL)
 	{       		
 		current = current->next;
 		if (current->prev->word != NULL)
 		{
-			printf("%s -- ", current->prev->word);
 			free(current->prev->word);
 		}
-		printf("%d\n", current->prev->key);
 		free(current->prev);
-		//*head = current;
+//		*head = current;
 	}
-
 	if (current->word != NULL)
 	{
-		printf("%s -- ", current->word);
 		free(current->word);
 	}
-	printf("%d\n", current->key);
 	free(current);
 	*head = NULL;
 
@@ -217,33 +217,33 @@ void printDoubleList(struct DoubleList *head)
 {
 	int i = 0;
 
-    	puts("\n");
-    	while (head != NULL)
-    	{
-        	i++;
-        	printf("%d\t Key: %d \t%s\n", i, head->key, head->word);
+	puts("\n");
+	while (head != NULL)
+	{
+		i++;
+		printf("%d\t Key: %d \t%s\n", i, head->key, head->word);
 
-        	head = head->next;
-    	}
+		head = head->next;
+	}
 }
 
 void printEndDoubleList(struct DoubleList *head)
 {
 	int i = 0;
 
-    	puts("\n");
-    	while (head->next != NULL)
-    	{
+	puts("\n");
+	while (head->next != NULL)
+	{
 		head = head->next;
 	}
 	
 	while (head != NULL)
 	{
 		i++;
-        	printf("%d\t Key: %d \t%s\n", i, head->key, head->word);
+		printf("%d\t Key: %d \t%s\n", i, head->key, head->word);
 		
 		head = head->prev;
-    	}
+	}
 }
 
 
