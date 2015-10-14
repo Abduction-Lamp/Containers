@@ -74,9 +74,34 @@ int main(void)
     doubleListHead = addDoubleListLast(doubleListHead, 	"Microsoft",	strlen("Microsoft"));    
     doubleListHead = addDoubleListFirst(doubleListHead, "Twitter",	    strlen("Twitter"));
    	
-
+    // Print DoubleList	
     printDoubleList(doubleListHead);
+    printEndDoubleList(doubleListHead);
+
+    // Print Size DoubleList
     printf("\nSize DoubleList = %d", getSizeDoubleList(doubleListHead));
+
+
+    // Find
+    if ((doubleListFind = findItemDoubleList(doubleListHead, 2)) != NULL)
+    {
+    	printf("\nFIND key = %d: \t%s\n", doubleListFind->key, doubleListFind->word);
+    }
+
+    // Remove element in the middle (Find == Get)
+    if ((doubleListFind = getItemDoubleList(doubleListHead /*NULL*/, 5)) != NULL)
+    {
+    	printf("\nGET DoubleList: \t%d\t%s\n", doubleListFind->key, doubleListFind->word);
+    }
+    if (removeItemDoubleList(&doubleListHead, &doubleListFind))
+    {
+	printDoubleList(doubleListHead);
+	printEndDoubleList(doubleListHead);
+    }
+ 
+    // Delete All DoubleList	                              
+    deleteDoubleList(&doubleListHead);
+
 
 
 
