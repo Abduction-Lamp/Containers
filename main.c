@@ -3,7 +3,7 @@
 
 #include "List.h"
 #include "DoubleList.h"
-
+#include "Stack.h"
 
 int main(void)
 {
@@ -13,6 +13,8 @@ int main(void)
 
     struct DoubleList *doubleListHead = NULL;
     struct DoubleList *doubleListFind = NULL;
+
+    struct Stack *stackHead = NULL;
 
 
 
@@ -101,6 +103,44 @@ int main(void)
  
     // Delete All DoubleList	                              
     deleteDoubleList(&doubleListHead);
+
+
+
+
+
+
+
+    // <<<<<<<<<< Stack <<<<<<<<<<
+
+    push(&stackHead, '9');
+    push(&stackHead, '4');
+    push(&stackHead, '#');
+    push(&stackHead, 'G'); 
+    push(&stackHead, '*');
+    push(&stackHead, 'W');
+
+	
+    puts("\n\n\n");	
+    printf("Size Stack = %d\n\n", getSizeStack(stackHead));
+
+    while (stackHead != NULL)
+    {
+        printf("\t%c\n", pop(&stackHead));
+    }
+
+    printf("\nSize Stack = %d\n\n", getSizeStack(stackHead));
+
+
+    push(&stackHead, '9');
+    push(&stackHead, '4');
+    push(&stackHead, '#');
+    push(&stackHead, 'G'); 
+    push(&stackHead, '*');
+    push(&stackHead, 'W');
+
+    deleteStack(&stackHead);
+    printf("\nSize Stack = %d\n\n", getSizeStack(stackHead));
+	
 
 
 
