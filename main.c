@@ -21,13 +21,13 @@ int main(void)
 
     // <<<<<<<<<< List <<<<<<<<<<
 
-    listHead = addList(listHead, "cosmos",      strlen("cosmos"));
-    listHead = addList(listHead, "star", 	    strlen("star"));
-    listHead = addList(listHead, "physics", 	strlen("physics"));
-    listHead = addList(listHead, "mathematics", strlen("mathematics"));
-    listHead = addList(listHead, "planet", 	    strlen("planet"));
-    listHead = addList(listHead, "algorithm", 	strlen("algorithm"));
-    listHead = addList(listHead, "science", 	strlen("science"));
+    listHead = addList(listHead, "cosmos",      (int)strlen("cosmos"));
+    listHead = addList(listHead, "star", 	    (int)strlen("star"));
+    listHead = addList(listHead, "physics", 	(int)strlen("physics"));
+    listHead = addList(listHead, "mathematics", (int)strlen("mathematics"));
+    listHead = addList(listHead, "planet", 	    (int)strlen("planet"));
+    listHead = addList(listHead, "algorithm", 	(int)strlen("algorithm"));
+    listHead = addList(listHead, "science", 	(int)strlen("science"));
 
 
     printList(listHead);
@@ -65,15 +65,15 @@ int main(void)
 
     // <<<<<<<<<< Double List <<<<<<<<<<
        	                                                                                      
-    doubleListHead = addDoubleListLast(doubleListHead,  "HabraHabr",	strlen("HabraHabr"));	                                                                                      
-    doubleListHead = addDoubleListFirst(doubleListHead, "Yandex",	    strlen("Yandex"));
-    doubleListHead = addDoubleListLast(doubleListHead, 	"Google",	    strlen("Google"));
-    doubleListHead = addDoubleListLast(doubleListHead, 	"Instagram",	strlen("Instagram"));
-    doubleListHead = addDoubleListFirst(doubleListHead, "Apple",	    strlen("Apple"));
-    doubleListHead = addDoubleListLast(doubleListHead, 	"Facebook",	    strlen("Facebook"));
-    doubleListHead = addDoubleListFirst(doubleListHead, "vk",		    strlen("vk"));
-    doubleListHead = addDoubleListLast(doubleListHead, 	"Microsoft",	strlen("Microsoft"));    
-    doubleListHead = addDoubleListFirst(doubleListHead, "Twitter",	    strlen("Twitter"));
+    doubleListHead = addDoubleListLast(doubleListHead,  "HabraHabr",	(int)strlen("HabraHabr"));
+    doubleListHead = addDoubleListFirst(doubleListHead, "Yandex",	    (int)strlen("Yandex"));
+    doubleListHead = addDoubleListLast(doubleListHead, 	"Google",	    (int)strlen("Google"));
+    doubleListHead = addDoubleListLast(doubleListHead, 	"Instagram",	(int)strlen("Instagram"));
+    doubleListHead = addDoubleListFirst(doubleListHead, "Apple",	    (int)strlen("Apple"));
+    doubleListHead = addDoubleListLast(doubleListHead, 	"Facebook",	    (int)strlen("Facebook"));
+    doubleListHead = addDoubleListFirst(doubleListHead, "vk",		    (int)strlen("vk"));
+    doubleListHead = addDoubleListLast(doubleListHead, 	"Microsoft",	(int)strlen("Microsoft"));
+    doubleListHead = addDoubleListFirst(doubleListHead, "Twitter",	    (int)strlen("Twitter"));
    	
     // Print DoubleList
     puts("\n\n");
@@ -121,14 +121,14 @@ int main(void)
 
 	
     puts("\n\n\n");	
-    printf("Size Stack = %d\n\n", getSizeStack(stackHead));
+    printf("Size Stack = %d\n\n", (int)getSizeStack(stackHead));
 
     while (stackHead != NULL)
     {
         printf("\t%c\n", pop(&stackHead));
     }
 
-    printf("\nSize Stack = %d\n\n", getSizeStack(stackHead));
+    printf("\nSize Stack = %d\n\n", (int)getSizeStack(stackHead));
 
 
     push(&stackHead, '9');
@@ -139,7 +139,7 @@ int main(void)
     push(&stackHead, 'W');
 
     deleteStack(&stackHead);
-    printf("\nSize Stack = %d\n\n", getSizeStack(stackHead));
+    printf("\nSize Stack = %d\n\n", (int)getSizeStack(stackHead));
 	
 
 
