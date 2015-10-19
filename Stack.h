@@ -7,7 +7,7 @@
 
 struct Stack
 {
-	char 		data;
+	char 			data;
 	struct Stack 	*next;
 };
 
