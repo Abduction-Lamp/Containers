@@ -82,6 +82,17 @@ size_t getSizeStackRPN(struct StackRPN *head)
 }
 
 
+void printRPN(struct StackRPN *head)
+{
+	while(head != NULL)
+	{
+		printf("%f ", head->val);
+		head = head->next;
+	}
+	puts("\n");
+}
+
+
 double callRPN(char *string)
 {
     struct StackRPN *head = NULL;
@@ -118,35 +129,46 @@ double callRPN(char *string)
                 break;
 
             case '+':
-                a = popRPN(&head);
                 b = popRPN(&head);
+                a = popRPN(&head);
                 result = a + b;
                 pushRPN(&head, result);
                 break;
 
             case '*':
-                a = popRPN(&head);
                 b = popRPN(&head);
+                a = popRPN(&head);
                 result = a * b;
                 pushRPN(&head, result);
                 break;
 
             case '/':
-                a = popRPN(&head);
                 b = popRPN(&head);
+                a = popRPN(&head);
                 if (b != 0)
                 {
                     result = a / b;
+                    pushRPN(&head, result);
                 }
-                pushRPN(&head, result);
+		else
+		{
+                	;       // exception
+		}
                 break;
+	    case '_':
+		result = 0 - popRPN(&head);
+		pushRPN(&head, result);
+		break;
 
             default:
                 ;       // exception
         }
     }
 
-//    printf("%d", getSizeStackRPN(head));
+    if (getSizeStackRPN(head) != 1)
+    {
+    	;       // exception	
+    }
 
     return popRPN(&head);
 }

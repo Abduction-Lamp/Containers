@@ -18,6 +18,7 @@ static double popRPN(struct StackRPN **head);
 static void deleteStackRPN(struct StackRPN **head);
 
 static size_t getSizeStackRPN(struct StackRPN *head);
+static void printRPN(struct StackRPN *head);
 
 
 double callRPN(char *string);
