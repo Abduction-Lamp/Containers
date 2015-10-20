@@ -4,6 +4,8 @@
 #include "List.h"
 #include "DoubleList.h"
 #include "Stack.h"
+#include "RPN.h"
+
 
 int main(void)
 {
@@ -16,6 +18,7 @@ int main(void)
 
     struct Stack *stackHead = NULL;
 
+    double result;
 
 
 
@@ -144,7 +147,8 @@ int main(void)
 
 
 
-
+    result = callRPN("72493-*+*37/+");
+    printf("\nresult = %f\n", result);
 
     //<
     puts("\n\nExit");
