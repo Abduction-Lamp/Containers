@@ -1,9 +1,9 @@
 #Makefile
 
-main: main.o List.o DoubleList.o Stack.o
-	gcc main.o List.o DoubleList.o Stack.o -o main
+main: main.o List.o DoubleList.o Stack.o RPN.o
+	gcc main.o List.o DoubleList.o Stack.o RPN.o -o main
 
-main.o: main.c List.h DoubleList.h Stack.h
+main.o: main.c List.h DoubleList.h Stack.h RPN.h
 	gcc -c main.c
 
 List.o: List.c List.h
@@ -14,6 +14,10 @@ DoubleList.o: DoubleList.c DoubleList.h
 
 Stack.o: Stack.c Stack.h
 	gcc -c Stack.c
+
+RPN.o: RPN.c RPN.h
+	gcc -c RPN.c
+
 
 
 clean:
