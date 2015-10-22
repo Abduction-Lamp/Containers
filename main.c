@@ -26,96 +26,89 @@ int main(void)
 
 
 
-
-
     // <<<<<<<<<< List <<<<<<<<<<
 
-    listHead = addList(listHead, "cosmos",      (int)strlen("cosmos"));
-    listHead = addList(listHead, "star", 	    (int)strlen("star"));
-    listHead = addList(listHead, "physics", 	(int)strlen("physics"));
-    listHead = addList(listHead, "mathematics", (int)strlen("mathematics"));
-    listHead = addList(listHead, "planet", 	    (int)strlen("planet"));
-    listHead = addList(listHead, "algorithm", 	(int)strlen("algorithm"));
-    listHead = addList(listHead, "science", 	(int)strlen("science"));
+    puts("\n\n***\tList");
 
+    listHead = listAdd(listHead, "cosmos", (int) strlen("cosmos"));
+    listHead = listAdd(listHead, "star", (int) strlen("star"));
+    listHead = listAdd(listHead, "physics", (int) strlen("physics"));
+    listHead = listAdd(listHead, "mathematics", (int) strlen("mathematics"));
+    listHead = listAdd(listHead, "planet", (int) strlen("planet"));
+    listHead = listAdd(listHead, "algorithm", (int) strlen("algorithm"));
+    listHead = listAdd(listHead, "science", (int) strlen("science"));
 
-    printList(listHead);
-
+    listPrint(listHead);
 
     // Remove element in the middle
-    if ((listFind = findItemList(listHead, 4)) != NULL)
+    if ((listFind = listFindItem(listHead, 4)) != NULL)
     {
-    	printf("\nFIND key = %d: \t%s\n", listFind->key, listFind->word);
+    	printf("\nFIND key = %d: \t%s", listFind->key, listFind->word);
     }
-    if (removeItemList(&listHead, &listFind))
+    if (listRemoveItem(&listHead, &listFind))
     {
-    	printList(listHead);	
+        listPrint(listHead);
     }
 
     // Remove element in the head
-    if ((listFind = findItemList(listHead, 7)) != NULL)
+    if ((listFind = listFindItem(listHead, 7)) != NULL)
     {
-    	printf("\nFIND key = %d: \t%s\n", listFind->key, listFind->word);
+    	printf("\nFIND key = %d: \t%s", listFind->key, listFind->word);
     }
-    if (removeItemList(&listHead, &listFind))
+    if (listRemoveItem(&listHead, &listFind))
     {
-        printList(listHead);
+        listPrint(listHead);
     }
 
-    printf("\nSize List = %d", getSizeList(listHead));
-
+    printf("\nSize List = %d", listSize(listHead));
 
     // Delete all List
-    deleteList(&listHead);
-
+    listDelete(&listHead);
 
 
 
 
 
     // <<<<<<<<<< Double List <<<<<<<<<<
-       	                                                                                      
-    doubleListHead = addDoubleListLast(doubleListHead,  "HabraHabr",	(int)strlen("HabraHabr"));
-    doubleListHead = addDoubleListFirst(doubleListHead, "Yandex",	    (int)strlen("Yandex"));
-    doubleListHead = addDoubleListLast(doubleListHead, 	"Google",	    (int)strlen("Google"));
-    doubleListHead = addDoubleListLast(doubleListHead, 	"Instagram",	(int)strlen("Instagram"));
-    doubleListHead = addDoubleListFirst(doubleListHead, "Apple",	    (int)strlen("Apple"));
-    doubleListHead = addDoubleListLast(doubleListHead, 	"Facebook",	    (int)strlen("Facebook"));
-    doubleListHead = addDoubleListFirst(doubleListHead, "vk",		    (int)strlen("vk"));
-    doubleListHead = addDoubleListLast(doubleListHead, 	"Microsoft",	(int)strlen("Microsoft"));
-    doubleListHead = addDoubleListFirst(doubleListHead, "Twitter",	    (int)strlen("Twitter"));
+
+    puts("\n\n\n***\tDouble List");
+
+    doubleListHead = doubleListAddLast(doubleListHead, "HabraHabr", (int) strlen("HabraHabr"));
+    doubleListHead = doubleListAddFirst(doubleListHead, "Yandex", (int) strlen("Yandex"));
+    doubleListHead = doubleListAddLast(doubleListHead, "Google", (int) strlen("Google"));
+    doubleListHead = doubleListAddLast(doubleListHead, "Instagram", (int) strlen("Instagram"));
+    doubleListHead = doubleListAddFirst(doubleListHead, "Apple", (int) strlen("Apple"));
+    doubleListHead = doubleListAddLast(doubleListHead, "Facebook", (int) strlen("Facebook"));
+    doubleListHead = doubleListAddFirst(doubleListHead, "vk", (int) strlen("vk"));
+    doubleListHead = doubleListAddLast(doubleListHead, "Microsoft", (int) strlen("Microsoft"));
+    doubleListHead = doubleListAddFirst(doubleListHead, "Twitter", (int) strlen("Twitter"));
    	
     // Print DoubleList
-    puts("\n\n");
-    printDoubleList(doubleListHead);
-    printEndDoubleList(doubleListHead);
+    doubleListPrint(doubleListHead);
+    doubleListPrintEnd(doubleListHead);
 
     // Print Size DoubleList
-    printf("\nSize DoubleList = %d\n", getSizeDoubleList(doubleListHead));
-
+    printf("\nSize DoubleList = %d\n", doubleListSize(doubleListHead));
 
     // Find
-    if ((doubleListFind = findItemDoubleList(doubleListHead, 2)) != NULL)
+    if ((doubleListFind = doubleListFindItem(doubleListHead, 2)) != NULL)
     {
-    	printf("\nFIND key = %d: \t%s", doubleListFind->key, doubleListFind->word);
+    	printf("\nFIND key = %d: \t%s\n", doubleListFind->key, doubleListFind->word);
     }
 
     // Remove element in the middle (Find == Get)
-    if ((doubleListFind = getItemDoubleList(doubleListHead /*NULL*/, 5)) != NULL)
+    if ((doubleListFind = doubleListGetItem(doubleListHead /*NULL*/, 5)) != NULL)
     {
     	printf("\nGET DoubleList: \t%d\t%s", doubleListFind->key, doubleListFind->word);
     }
-    if (removeItemDoubleList(&doubleListHead, &doubleListFind))
+    if (doubleListRemoveItem(&doubleListHead, &doubleListFind))
     {
-	printDoubleList(doubleListHead);
-	printEndDoubleList(doubleListHead);
+        doubleListPrint(doubleListHead);
+        doubleListPrintEnd(doubleListHead);
     }
  
     // Delete All DoubleList	                              
-    deleteDoubleList(&doubleListHead);
-
-
-
+    doubleListDelete(&doubleListHead);
 
 
 
@@ -123,24 +116,21 @@ int main(void)
 
     // <<<<<<<<<< Stack <<<<<<<<<<
 
+    puts("\n\n\n***\tStack\n");
+
     push(&stackHead, '9');
     push(&stackHead, '4');
     push(&stackHead, '#');
     push(&stackHead, 'G'); 
     push(&stackHead, '*');
     push(&stackHead, 'W');
-
-	
-    puts("\n\n\n");	
-    printf("Size Stack = %d\n\n", (int)getSizeStack(stackHead));
+    printf("Size Stack = %d\n", (int)getSizeStack(stackHead));
 
     while (stackHead != NULL)
     {
         printf("\t%c\n", pop(&stackHead));
     }
-
-    printf("\nSize Stack = %d\n\n", (int)getSizeStack(stackHead));
-
+    printf("\nSize Stack = %d", (int)getSizeStack(stackHead));
 
     push(&stackHead, '9');
     push(&stackHead, '4');
@@ -150,18 +140,16 @@ int main(void)
     push(&stackHead, 'W');
 
     deleteStack(&stackHead);
-    printf("\nSize Stack = %d\n\n", (int)getSizeStack(stackHead));
-	
-
-
+    printf("\nSize Stack = %d", (int)getSizeStack(stackHead));
 
 
 
 
 
     // <<<<<<<<<< RPN <<<<<<<<<<
+    puts("\n\n\n***\tRPN + Stack");
 
-    result = callRPN("36 7 204 + * 77 55 - 11 * /");
+    result = callRPN("36 7 204 + * 77 55 - 11 * / 1_ 3 + +");
     printf("\nresult = %f\n", result);
 
 
@@ -170,6 +158,7 @@ int main(void)
 
 
     // <<<<<<<<<< Queue <<<<<<<<<
+    puts("\n\n***\tQueue");
 
     que.head = NULL;
     que.tail = NULL;	
@@ -180,15 +169,23 @@ int main(void)
     queuePush(&que, 211.005);
     queuePush(&que, 0.1041985);
 
-    puts("\n\n\n");
+    printf("\nSize Queue = %d\n\n", (int)queueSize(&que));
     while (que.head != NULL)
     {
         printf("\t%f\n", queuePop(&que));
     }
 
+    queuePush(&que, -4.306);
+    queuePush(&que, 15.18);
+    queuePush(&que, -9.2);
+    queuePush(&que, 0.005);
+    queuePush(&que, 99.999);
+    queuePush(&que, -958.0);
+    queuePush(&que, -77.7);
+    queuePush(&que, 1.0);
+    queuePush(&que, 0.1041985);
 
-
-
+    queueDelete(&que);
 
 
 

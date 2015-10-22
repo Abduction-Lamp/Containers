@@ -16,18 +16,18 @@ struct DoubleList
 };
 
 
-struct DoubleList * addDoubleListFirst(struct DoubleList *head, const char *string, int keyCount);
-struct DoubleList * addDoubleListLast(struct DoubleList *head, const char *string, int keyCount);
+struct DoubleList * doubleListAddFirst(struct DoubleList *head, const char *string, int keyCount);
+struct DoubleList * doubleListAddLast(struct DoubleList *head, const char *string, int keyCount);
 		    
-struct DoubleList * findItemDoubleList(struct DoubleList *head, int keyFind);
-struct DoubleList * getItemDoubleList(struct DoubleList *head, int i);
+struct DoubleList * doubleListFindItem(struct DoubleList *head, int keyFind);
+struct DoubleList * doubleListGetItem(struct DoubleList *head, int i);
 
-_Bool removeItemDoubleList(struct DoubleList **head, struct DoubleList **item);
-_Bool deleteDoubleList(struct DoubleList **head);
+_Bool doubleListRemoveItem(struct DoubleList **head, struct DoubleList **item);
+_Bool doubleListDelete(struct DoubleList **head);
 
-void printDoubleList(struct DoubleList *head);
-void printEndDoubleList(struct DoubleList *head);
-int getSizeDoubleList(struct DoubleList *head);
+void doubleListPrint(struct DoubleList *head);
+void doubleListPrintEnd(struct DoubleList *head);
+int doubleListSize(struct DoubleList *head);
 
 
 #endif //DOUBLELIST_H_

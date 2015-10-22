@@ -10,7 +10,8 @@
 #include "DoubleList.h"
 
 
-struct DoubleList * addDoubleListFirst(struct DoubleList *head, const char *string, int keyCount)
+
+struct DoubleList * doubleListAddFirst(struct DoubleList *head, const char *string, int keyCount)
 {
 	struct DoubleList *doubleList = NULL;
 
@@ -45,14 +46,14 @@ struct DoubleList * addDoubleListFirst(struct DoubleList *head, const char *stri
 }
 
 
-struct DoubleList * addDoubleListLast(struct DoubleList *head, const char *string, int keyCount)
+struct DoubleList * doubleListAddLast(struct DoubleList *head, const char *string, int keyCount)
 {
 	struct DoubleList *doubleList = NULL;
 	struct DoubleList *current = head;
 	
 	if (head == NULL)
 	{
-		head = addDoubleListFirst(head, string, keyCount);
+		head = doubleListAddFirst(head, string, keyCount);
 	}
 	else
 	{
@@ -90,7 +91,7 @@ struct DoubleList * addDoubleListLast(struct DoubleList *head, const char *strin
 }
 
 
-struct DoubleList * findItemDoubleList(struct DoubleList *head, int keyFind)
+struct DoubleList * doubleListFindItem(struct DoubleList *head, int keyFind)
 {
 	while (head != NULL)
 	{
@@ -105,11 +106,11 @@ struct DoubleList * findItemDoubleList(struct DoubleList *head, int keyFind)
 }
 
 
-struct DoubleList * getItemDoubleList(struct DoubleList *head, int i)
+struct DoubleList * doubleListGetItem(struct DoubleList *head, int i)
 {
 	int count = 0;
 
-	if (i < getSizeDoubleList(head) && i > -1)
+	if (i < doubleListSize(head) && i > -1)
 	{
 		while (count != i)
 		{
@@ -126,7 +127,7 @@ struct DoubleList * getItemDoubleList(struct DoubleList *head, int i)
 }
 
 
-_Bool removeItemDoubleList(struct DoubleList **head, struct DoubleList **item)
+_Bool doubleListRemoveItem(struct DoubleList **head, struct DoubleList **item)
 {
 	struct DoubleList *current = *head;
 	_Bool flag = false;
@@ -187,7 +188,7 @@ _Bool removeItemDoubleList(struct DoubleList **head, struct DoubleList **item)
 }
 
 
-_Bool deleteDoubleList(struct DoubleList **head)
+_Bool doubleListDelete(struct DoubleList **head)
 {
 	struct DoubleList *current = *head;
 //	_Bool flag = false;
@@ -213,7 +214,7 @@ _Bool deleteDoubleList(struct DoubleList **head)
 }
 
 
-void printDoubleList(struct DoubleList *head)
+void doubleListPrint(struct DoubleList *head)
 {
 	int i = 0;
 
@@ -227,7 +228,8 @@ void printDoubleList(struct DoubleList *head)
 	}
 }
 
-void printEndDoubleList(struct DoubleList *head)
+
+void doubleListPrintEnd(struct DoubleList *head)
 {
 	int i = 0;
 
@@ -247,7 +249,7 @@ void printEndDoubleList(struct DoubleList *head)
 }
 
 
-int getSizeDoubleList(struct DoubleList *head)
+int doubleListSize(struct DoubleList *head)
 {
     int i = 0;
     if (head != NULL)

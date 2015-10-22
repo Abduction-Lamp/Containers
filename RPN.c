@@ -10,6 +10,7 @@
 #include "RPN.h"
 
 
+
 _Bool pushRPN(struct StackRPN **head, double x)
 {
     struct StackRPN *stack = NULL;
@@ -120,29 +121,41 @@ double callRPN(char *string)
             case '6':
             case '7':
             case '8':
-            case '9':		
-		j = i;
-		while (	string[j] == '0' || string[j] == '1' ||	string[j] == '2' || string[j] == '3' ||	string[j] == '4' || string[j] == '5' ||	string[j] == '6' || string[j] == '7' ||	string[j] == '8' || string[j] == '9')
-		{	  
-			j++;
-		}
-		j = j - i;
-		if (j < 50)
-		{
-                	for (k = 0; k < j; k++)
-			{
-				str[k] = string[i];
-				i++;
-			}
-			str[k] = '\0';
-	                i--;
-                	pushRPN(&head, atof(str)); 			
-		}
-		else
-		{
-                	;       // exception
-		}
+            case '9':
+            {
+                j = i;
+                while ( string[j] == '0' ||
+                        string[j] == '1' ||
+                        string[j] == '2' ||
+                        string[j] == '3' ||
+                        string[j] == '4' ||
+                        string[j] == '5' ||
+                        string[j] == '6' ||
+                        string[j] == '7' ||
+                        string[j] == '8' ||
+                        string[j] == '9'    )
+                {
+                    j++;
+                }
+
+                j = j - i;
+                if (j < 50)
+                {
+                    for (k = 0; k < j; k++)
+                    {
+                        str[k] = string[i];
+                        i++;
+                    }
+                    str[k] = '\0';
+                    i--;
+                    pushRPN(&head, atof(str));
+                }
+                else
+                {
+                    ;       // exception
+                }
                 break;
+            }
 
             case '-':
                 b = popRPN(&head);
@@ -173,24 +186,24 @@ double callRPN(char *string)
                     result = a / b;
                     pushRPN(&head, result);
                 }
-		else
-		{
-                	;       // exception
-		}
+		        else
+		        {
+                    ;       // exception
+		        }
                 break;
-	    case '_':
-		result = 0 - popRPN(&head);
-		pushRPN(&head, result);
-		break;
+
+	        case '_':
+		        result = 0 - popRPN(&head);
+		        pushRPN(&head, result);
+		        break;
 
             default:
                 ;       // exception
         }
 
-//	printf("%d\n", getSizeStackRPN(head));
+//	    printf("%d\n", getSizeStackRPN(head));
 //      printRPN(head);
 //    	getchar();
-	
     }
 
     if (getSizeStackRPN(head) != 1)

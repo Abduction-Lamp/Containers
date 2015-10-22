@@ -20,8 +20,7 @@ static void deleteItem(struct List *item)
 }
 
 
-
-struct List *addList(struct List *head, const char *string, int keyCount)
+struct List * listAdd(struct List *head, const char *string, int keyCount)
 {
     struct List *list = NULL;
 
@@ -39,7 +38,7 @@ struct List *addList(struct List *head, const char *string, int keyCount)
 }
 
 
-void printList(struct List *head)
+void listPrint(struct List *head)
 {
     int i = 0;
 
@@ -54,7 +53,7 @@ void printList(struct List *head)
 }
 
 
-struct List * findItemList(struct List *head, int keyFind)
+struct List * listFindItem(struct List *head, int keyFind)
 {
 	struct List *current = head;
 	
@@ -75,7 +74,7 @@ struct List * findItemList(struct List *head, int keyFind)
  * address of a pointer to the deleted element List. This is required to return values through arguments.
  *
  * */
-_Bool removeItemList(struct List **head, struct List **item)
+_Bool listRemoveItem(struct List **head, struct List **item)
 {
 	_Bool flag = false;
     struct List *current = *head;
@@ -124,7 +123,7 @@ _Bool removeItemList(struct List **head, struct List **item)
 }
 
 
-_Bool deleteList(struct List **head)
+_Bool listDelete(struct List **head)
 {
 	struct List *current = *head;
 
@@ -151,7 +150,7 @@ _Bool deleteList(struct List **head)
 }
 
 
-int getSizeList(struct List *head)
+int listSize(struct List *head)
 {
 	int i = 0;
 	if (head != NULL)
@@ -168,11 +167,11 @@ int getSizeList(struct List *head)
 }
 
 
-struct List * getItemList(struct List *head, int i)
+struct List * listGetItem(struct List *head, int i)
 {
     int count = 0;
 
-    if (i < getSizeList(head) && i > -1)
+    if (i < listSize(head) && i > -1)
     {
         while (count != i)
         {

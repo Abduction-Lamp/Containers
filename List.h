@@ -22,16 +22,16 @@ struct List
 };
 
 
-struct List * addList(struct List *head, const char *string, int keyCount);
+struct List * listAdd(struct List *head, const char *string, int keyCount);
 
-struct List * findItemList(struct List *head, int keyFind);
-struct List * getItemList(struct List *head, int i);
+struct List * listFindItem(struct List *head, int keyFind);
+struct List *listGetItem(struct List *head, int i);
 
-_Bool removeItemList(struct List **head, struct List **item);
-_Bool deleteList(struct List **head);
+_Bool listRemoveItem(struct List **head, struct List **item);
+_Bool listDelete(struct List **head);
 
-void printList(struct List *head);
-int getSizeList(struct List *head);
+void listPrint(struct List *head);
+int listSize(struct List *head);
 
 #endif //CONTAINERS_LIST_H
 

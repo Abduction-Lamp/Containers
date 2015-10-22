@@ -5,6 +5,7 @@
 #ifndef CONTAINERS_RPN_H
 #define CONTAINERS_RPN_H
 
+
 struct StackRPN
 {
     double			    val;
