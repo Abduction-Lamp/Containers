@@ -5,6 +5,7 @@
 #include "DoubleList.h"
 #include "Stack.h"
 #include "RPN.h"
+#include "Queue.h"
 
 
 int main(void)
@@ -19,6 +20,11 @@ int main(void)
     struct Stack *stackHead = NULL;
 
     double result;
+
+    struct Queue que;
+
+
+
 
 
 
@@ -61,6 +67,7 @@ int main(void)
 
     // Delete all List
     deleteList(&listHead);
+
 
 
 
@@ -113,6 +120,7 @@ int main(void)
 
 
 
+
     // <<<<<<<<<< Stack <<<<<<<<<<
 
     push(&stackHead, '9');
@@ -147,8 +155,44 @@ int main(void)
 
 
 
+
+
+
+
+    // <<<<<<<<<< RPN <<<<<<<<<<
+
     result = callRPN("36 7 204 + * 77 55 - 11 * /");
     printf("\nresult = %f\n", result);
+
+
+
+
+
+
+    // <<<<<<<<<< Queue <<<<<<<<<
+
+    que.head = NULL;
+    que.tail = NULL;	
+
+    queuePush(&que, 65.0);
+    queuePush(&que, 5.8);
+    queuePush(&que, -77.7);
+    queuePush(&que, 211.005);
+    queuePush(&que, 0.1041985);
+
+    puts("\n\n\n");
+    while (que.head != NULL)
+    {
+        printf("\t%f\n", queuePop(&que));
+    }
+
+
+
+
+
+
+
+
 
     //<
     puts("\n\nExit");
