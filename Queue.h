@@ -8,8 +8,8 @@
 
 struct Node
 {
-	double 	val;
-	struct Node 	*next;
+	double 		val;
+	struct Node *next;
 };
 
 
@@ -23,6 +23,8 @@ struct Queue
 
 _Bool queuePush(struct Queue *queue, double x);
 double queuePop(struct Queue *queue);
+size_t queueSize(struct Queue *queue);
+_Bool queueDelete(struct Queue *queue);
 
 
 #endif //CONTAINERS_QUEUE_H

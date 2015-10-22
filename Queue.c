@@ -5,9 +5,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
-#include <string.h>
 
 #include "Queue.h"
+
 
 _Bool queuePush(struct Queue *queue, double x)
 {
@@ -33,8 +33,6 @@ _Bool queuePush(struct Queue *queue, double x)
 		}
 
 		flag = true;
-
-
 	}	
 	else
 	{
@@ -48,7 +46,7 @@ _Bool queuePush(struct Queue *queue, double x)
 double queuePop(struct Queue *queue)
 {
 	double x = 0;
-        struct Node *qNode = queue->head;
+	struct Node *qNode = queue->head;
 
 	if (queue->head != NULL)
 	{
@@ -71,3 +69,36 @@ double queuePop(struct Queue *queue)
 }
 
 
+size_t queueSize(struct Queue *queue)
+{
+	int count = 0;
+	struct Node *qNode = queue->head;
+
+	while (qNode != NULL)
+	{
+		count++;
+		qNode = qNode->next;
+	}
+
+	return count;
+}
+
+
+_Bool queueDelete(struct Queue *queue)
+{
+	_Bool flag = true;
+	struct Node *qNode = queue->head;
+	struct Node *delNode = qNode;
+
+	while (qNode != NULL)
+	{
+		qNode = qNode->next;
+		free(delNode);
+		delNode = qNode;
+	}
+
+	queue->head = NULL;
+	queue->tail = NULL;
+
+	return flag;
+}
