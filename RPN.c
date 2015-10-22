@@ -102,6 +102,9 @@ double callRPN(char *string)
     double b;
 
     int i;
+    int j;
+    int k;
+    char str[52];
 
 
     for (i = 0; i < strlen(string); i++)
@@ -117,8 +120,28 @@ double callRPN(char *string)
             case '6':
             case '7':
             case '8':
-            case '9':
-                pushRPN(&head, string[i] - '0');
+            case '9':		
+		j = i;
+		while (	string[j] == '0' || string[j] == '1' ||	string[j] == '2' || string[j] == '3' ||	string[j] == '4' || string[j] == '5' ||	string[j] == '6' || string[j] == '7' ||	string[j] == '8' || string[j] == '9')
+		{	  
+			j++;
+		}
+		j = j - i;
+		if (j < 50)
+		{
+                	for (k = 0; k < j; k++)
+			{
+				str[k] = string[i];
+				i++;
+			}
+			str[k] = '\0';
+	                i--;
+                	pushRPN(&head, atof(str)); 			
+		}
+		else
+		{
+                	;       // exception
+		}
                 break;
 
             case '-':
@@ -163,6 +186,11 @@ double callRPN(char *string)
             default:
                 ;       // exception
         }
+
+//	printf("%d\n", getSizeStackRPN(head));
+//      printRPN(head);
+//    	getchar();
+	
     }
 
     if (getSizeStackRPN(head) != 1)

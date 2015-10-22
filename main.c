@@ -147,7 +147,7 @@ int main(void)
 
 
 
-    result = callRPN("752-4*+");
+    result = callRPN("36 7 204 + * 77 55 - 11 * /");
     printf("\nresult = %f\n", result);
 
     //<
