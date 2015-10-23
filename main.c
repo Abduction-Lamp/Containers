@@ -6,6 +6,8 @@
 #include "Stack.h"
 #include "RPN.h"
 #include "Queue.h"
+#include "BinaryTree.h"
+
 
 
 int main(void)
@@ -22,6 +24,9 @@ int main(void)
     double result;
 
     struct Queue que;
+
+    struct BinaryTree *treeRoot = NULL;
+    struct BinaryTree *treeSearch = NULL;
 
 
 
@@ -187,6 +192,58 @@ int main(void)
 
     queueDelete(&que);
 
+
+
+
+
+    // <<<<<<<<<< Binary Tree <<<<<<<<<
+    puts("\n\n***\tBinary Tree");
+
+    binaryTreeAdd(&treeRoot, 58);
+    binaryTreeAdd(&treeRoot, 17);
+    binaryTreeAdd(&treeRoot, 96);
+    binaryTreeAdd(&treeRoot, 35);
+    binaryTreeAdd(&treeRoot, 5);
+    binaryTreeAdd(&treeRoot, 8);
+    binaryTreeAdd(&treeRoot, 100);
+    binaryTreeAdd(&treeRoot, 77);
+    binaryTreeAdd(&treeRoot, 70);
+    binaryTreeAdd(&treeRoot, 45);
+    binaryTreeAdd(&treeRoot, 59);
+    binaryTreeAdd(&treeRoot, 5);
+    binaryTreeAdd(&treeRoot, 18);
+    binaryTreeAdd(&treeRoot, 8);
+    binaryTreeAdd(&treeRoot, 58);
+    binaryTreeAdd(&treeRoot, 0);
+    binaryTreeAdd(&treeRoot, 88);
+    binaryTreeAdd(&treeRoot, 99);
+    binaryTreeAdd(&treeRoot, 86);
+
+    treeSearch = binaryTreeSearch(treeRoot, 0);
+    if (treeSearch != NULL)
+    {
+    	printf("Search: %d\n", treeSearch->data);
+    }
+
+    puts("");
+    binaryTreePrintLRR(treeRoot);
+    puts("");
+    binaryTreePrintRRL(treeRoot);
+
+    treeSearch = binaryTreeGetLeft(treeRoot);
+    if (treeSearch != NULL)
+    {
+    	printf("\n\nLeft (min): %d\n", treeSearch->data);
+    }
+    treeSearch = binaryTreeGetRight(treeRoot);
+    if (treeSearch != NULL)
+    {
+    	printf("Right (max): %d\n", treeSearch->data);
+    }
+
+    treeSearch = NULL;	
+    binaryTreeDelete(&treeRoot);
+	
 
 
 
