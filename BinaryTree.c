@@ -4,10 +4,15 @@
                      
 #include <stdlib.h>
 #include <stdio.h>
-#include <stdbool.h>
 
 #include "BinaryTree.h"
 
+
+
+static size_t max(size_t a, size_t b)
+{
+	return (a > b) ? a : b;
+}
 
 
 void binaryTreeAdd(struct BinaryTree **tree, int val)
@@ -148,4 +153,12 @@ void binaryTreeDelete(struct BinaryTree **tree)
 }
 
 
+size_t binaryTreeGetHeight(struct BinaryTree *tree)
+{
+	if (tree == NULL)
+	{
+		return 0;
+	}
 
+	return 1 + max(binaryTreeGetHeight(tree->left), binaryTreeGetHeight(tree->right));
+}

@@ -24,6 +24,7 @@ void binaryTreePrintRRL(struct BinaryTree *tree);
 
 struct BinaryTree * binaryTreeGetLeft(struct BinaryTree *tree);
 struct BinaryTree * binaryTreeGetRight(struct BinaryTree *tree);
+size_t binaryTreeGetHeight(struct BinaryTree *tree);
 
 void binaryTreeDelete(struct BinaryTree **tree);
 

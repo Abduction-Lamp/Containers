@@ -157,6 +157,8 @@ int main(void)
     result = callRPN("36 7 204 + * 77 55 - 11 * / 1_ 3 + +");
     printf("\nresult = %f\n", result);
 
+    result = callRPN("3 8 + 5 * 7 9 3 - * +");
+    printf("\nresult = %f\n", result);
 
 
 
@@ -241,10 +243,21 @@ int main(void)
     	printf("Right (max): %d\n", treeSearch->data);
     }
 
+    printf("Height Tree = %lu\n", binaryTreeGetHeight(treeRoot));
+
     treeSearch = NULL;	
     binaryTreeDelete(&treeRoot);
-	
 
+
+    binaryTreeAdd(&treeRoot, 7);
+    binaryTreeAdd(&treeRoot, 3);
+    binaryTreeAdd(&treeRoot, 5);
+    binaryTreeAdd(&treeRoot, 1);
+    binaryTreeAdd(&treeRoot, -1);
+    binaryTreeAdd(&treeRoot, 9);
+
+    printf("Height Tree = %lu\n", binaryTreeGetHeight(treeRoot));
+    binaryTreeDelete(&treeRoot);
 
 
 
