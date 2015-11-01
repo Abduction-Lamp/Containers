@@ -14,19 +14,22 @@ struct BinaryTree
 	struct BinaryTree *right;	
 };
 
+typedef struct BinaryTree * bTree;
 
-void binaryTreeAdd(struct BinaryTree **tree, int val);
 
-struct BinaryTree * binaryTreeSearch(struct BinaryTree *tree, int key);
 
-void binaryTreePrintLRR(struct BinaryTree *tree);
-void binaryTreePrintRRL(struct BinaryTree *tree);
+void binaryTreeAdd(bTree *tree, int val);
 
-struct BinaryTree * binaryTreeGetLeft(struct BinaryTree *tree);
-struct BinaryTree * binaryTreeGetRight(struct BinaryTree *tree);
-size_t binaryTreeGetHeight(struct BinaryTree *tree);
+bTree binaryTreeSearch(bTree tree, int key);
 
-void binaryTreeDelete(struct BinaryTree **tree);
+void binaryTreePrintLRR(bTree tree);
+void binaryTreePrintRRL(bTree tree);
+
+bTree binaryTreeGetLeft( bTree tree);
+bTree binaryTreeGetRight(bTree tree);
+size_t binaryTreeGetHeight(bTree tree);
+
+void binaryTreeDelete(bTree *tree);
 
 
 #endif //CONTAINERS_BINARYTREE_H

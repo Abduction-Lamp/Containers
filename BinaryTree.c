@@ -15,11 +15,11 @@ static size_t max(size_t a, size_t b)
 }
 
 
-void binaryTreeAdd(struct BinaryTree **tree, int val)
+void binaryTreeAdd(bTree *tree, int val)
 {
 	if ((*tree) == NULL)
 	{
-		*tree = (struct BinaryTree *)malloc(sizeof(struct BinaryTree));
+		*tree = (bTree)malloc(sizeof(struct BinaryTree));
 		if ((*tree) != NULL)
 		{	
 			(*tree)->data = val;
@@ -35,13 +35,13 @@ void binaryTreeAdd(struct BinaryTree **tree, int val)
 		}
 		else
 		{
-                	binaryTreeAdd(&((*tree)->right), val);	
+			binaryTreeAdd(&((*tree)->right), val);
 		}
 	}
 }
 
 
-struct BinaryTree * binaryTreeSearch(struct BinaryTree *tree, int key)
+bTree binaryTreeSearch(bTree tree, int key)
 {
 	if (tree == NULL)
 	{
@@ -68,7 +68,7 @@ struct BinaryTree * binaryTreeSearch(struct BinaryTree *tree, int key)
 }
 
 
-void binaryTreePrintLRR(struct BinaryTree *tree)
+void binaryTreePrintLRR(bTree tree)
 {
 	if (tree == NULL)
 	{	
@@ -83,7 +83,7 @@ void binaryTreePrintLRR(struct BinaryTree *tree)
 }
 
 
-void binaryTreePrintRRL(struct BinaryTree *tree)
+void binaryTreePrintRRL(bTree tree)
 {
 	if (tree == NULL)
 	{	
@@ -98,7 +98,7 @@ void binaryTreePrintRRL(struct BinaryTree *tree)
 }
 
 
-struct BinaryTree * binaryTreeGetLeft(struct BinaryTree *tree)
+bTree binaryTreeGetLeft(bTree tree)
 {
 	if (tree == NULL)
 	{
@@ -118,7 +118,7 @@ struct BinaryTree * binaryTreeGetLeft(struct BinaryTree *tree)
 }
 
 
-struct BinaryTree * binaryTreeGetRight(struct BinaryTree *tree)
+bTree binaryTreeGetRight(bTree tree)
 {
 	if (tree == NULL)
 	{
@@ -138,7 +138,7 @@ struct BinaryTree * binaryTreeGetRight(struct BinaryTree *tree)
 }
 
 
-void binaryTreeDelete(struct BinaryTree **tree)
+void binaryTreeDelete(bTree *tree)
 {
 	if ((*tree) == NULL)
 	{	
@@ -153,7 +153,7 @@ void binaryTreeDelete(struct BinaryTree **tree)
 }
 
 
-size_t binaryTreeGetHeight(struct BinaryTree *tree)
+size_t binaryTreeGetHeight(bTree tree)
 {
 	if (tree == NULL)
 	{

@@ -25,8 +25,8 @@ int main(void)
 
     struct Queue que;
 
-    struct BinaryTree *treeRoot = NULL;
-    struct BinaryTree *treeSearch = NULL;
+    bTree treeRoot = NULL;
+    bTree treeSearch = NULL;
 
 
 
